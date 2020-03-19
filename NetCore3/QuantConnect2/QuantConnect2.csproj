@@ -39,9 +39,12 @@
   <ItemGroup>
     <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
     <ProjectReference Include="..\QuantConnect.Lean2.Launcher\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+    <ProjectReference Include="..\QuantConnect.PythonWrapper\QuantConnect.PythonWrapper.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NodaTime" Version="2.4.7" />
+    <PackageReference Include="QLNet" Version="1.11.3" />
+    <PackageReference Include="MathNet.Numerics" Version="4.9.0" />
   </ItemGroup>
 </Project>
