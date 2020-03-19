@@ -36,4 +36,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean2.Launcher\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+  </ItemGroup>
 </Project>
