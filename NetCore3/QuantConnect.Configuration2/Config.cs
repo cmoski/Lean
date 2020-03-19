@@ -20,7 +20,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using QuantConnect.Logging;
+using QuantConnect.Logging2;
 using static System.FormattableString;
 
 namespace QuantConnect.Configuration
