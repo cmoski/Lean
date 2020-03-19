@@ -16,7 +16,7 @@
 using System;
 using System.Globalization;
 
-namespace QuantConnect.Logging
+namespace QuantConnect.Logging2
 {
     /// <summary>
     /// Logging extensions.

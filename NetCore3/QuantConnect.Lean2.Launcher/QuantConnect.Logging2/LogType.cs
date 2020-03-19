@@ -14,7 +14,7 @@
  * limitations under the License.
 */
 
-namespace QuantConnect.Logging
+namespace QuantConnect.Logging2
 {
     /// <summary>
     /// Error level

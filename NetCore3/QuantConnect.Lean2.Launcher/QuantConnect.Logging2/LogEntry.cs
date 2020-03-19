@@ -17,7 +17,7 @@
 using System;
 using System.Globalization;
 
-namespace QuantConnect.Logging
+namespace QuantConnect.Logging2
 {
     /// <summary>
     /// Log entry wrapper to make logging simpler:

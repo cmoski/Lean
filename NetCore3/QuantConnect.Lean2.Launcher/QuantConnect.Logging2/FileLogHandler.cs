@@ -17,7 +17,7 @@ using System;
 using System.Globalization;
 using System.IO;
 
-namespace QuantConnect.Logging
+namespace QuantConnect.Logging2
 {
     /// <summary>
     /// Provides an implementation of <see cref="ILogHandler"/> that writes all log messages to a file on disk.

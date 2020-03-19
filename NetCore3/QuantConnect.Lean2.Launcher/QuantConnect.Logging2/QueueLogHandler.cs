@@ -14,40 +14,48 @@
 */
 
 using System;
+using System.Collections.Concurrent;
 using System.Globalization;
 using System.IO;
 
-namespace QuantConnect.Logging
+namespace QuantConnect.Logging2
 {
     /// <summary>
-    /// ILogHandler implementation that writes log output to console.
+    /// ILogHandler implementation that queues all logs and writes them when instructed.
     /// </summary>
-    public class ConsoleLogHandler : ILogHandler
+    public class QueueLogHandler : ILogHandler
     {
-        private const string DefaultDateFormat = "yyyyMMdd HH:mm:ss.fff";
+        private readonly ConcurrentQueue<LogEntry> _logs;
+        private const string DateFormat = "yyyyMMdd HH:mm:ss";
         private readonly TextWriter _trace;
         private readonly TextWriter _error;
-        private readonly string _dateFormat;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantConnect.Logging.ConsoleLogHandler"/> class.
+        /// Public access to the queue for log processing.
         /// </summary>
-        public ConsoleLogHandler()
-            : this(DefaultDateFormat)
+        public ConcurrentQueue<LogEntry> Logs
         {
+            get { return _logs; }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantConnect.Logging.ConsoleLogHandler"/> class.
+        /// LOgging event delegate
         /// </summary>
-        /// <param name="dateFormat">Specifies the date format to use when writing log messages to the console window</param>
-        public ConsoleLogHandler(string dateFormat = DefaultDateFormat)
+        public delegate void LogEventRaised(LogEntry log);
+
+        /// <summary>
+        /// Logging Event Handler
+        /// </summary>
+        public event LogEventRaised LogEvent;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QueueLogHandler"/> class.
+        /// </summary>
+        public QueueLogHandler()
         {
-            // saves references to the real console text writer since in a deployed state we may overwrite this in order
-            // to redirect messages from algorithm to result handler
+            _logs = new ConcurrentQueue<LogEntry>();
             _trace = Console.Out;
             _error = Console.Error;
-            _dateFormat = dateFormat;
         }
 
         /// <summary>
@@ -56,13 +64,13 @@ namespace QuantConnect.Logging
         /// <param name="text">The error text to log</param>
         public void Error(string text)
         {
-#if DEBUG
+            var log = new LogEntry(text, DateTime.UtcNow, LogType.Error);
+            _logs.Enqueue(log);
+            OnLogEvent(log);
+
             Console.ForegroundColor = ConsoleColor.Red;
-#endif
-            _error.WriteLine(DateTime.Now.ToString(_dateFormat, CultureInfo.InvariantCulture) + " ERROR:: " + text);
-#if DEBUG
+            _error.WriteLine(DateTime.Now.ToString(DateFormat, CultureInfo.InvariantCulture) + " Error:: " + text);
             Console.ResetColor();
-#endif
         }
 
         /// <summary>
@@ -71,7 +79,11 @@ namespace QuantConnect.Logging
         /// <param name="text">The debug text to log</param>
         public void Debug(string text)
         {
-            _trace.WriteLine(DateTime.Now.ToString(_dateFormat, CultureInfo.InvariantCulture) + " DEBUG:: " + text);
+            var log = new LogEntry(text, DateTime.UtcNow, LogType.Debug);
+            _logs.Enqueue(log);
+            OnLogEvent(log);
+
+            _trace.WriteLine(DateTime.Now.ToString(DateFormat, CultureInfo.InvariantCulture) + " Debug:: " + text);
         }
 
         /// <summary>
@@ -80,7 +92,11 @@ namespace QuantConnect.Logging
         /// <param name="text">The trace text to log</param>
         public void Trace(string text)
         {
-            _trace.WriteLine(DateTime.Now.ToString(_dateFormat, CultureInfo.InvariantCulture) + " Trace:: " + text);
+            var log = new LogEntry(text, DateTime.UtcNow, LogType.Trace);
+            _logs.Enqueue(log);
+            OnLogEvent(log);
+
+            _trace.WriteLine(DateTime.Now.ToString(DateFormat, CultureInfo.InvariantCulture) + " Trace:: " + text);
         }
 
         /// <summary>
@@ -89,6 +105,19 @@ namespace QuantConnect.Logging
         /// <filterpriority>2</filterpriority>
         public void Dispose()
         {
+        }
+
+        /// <summary>
+        /// Raise a log event safely
+        /// </summary>
+        protected virtual void OnLogEvent(LogEntry log)
+        {
+            var handler = LogEvent;
+
+            if (handler != null)
+            {
+                handler(log);
+            }
         }
     }
 }

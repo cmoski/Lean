@@ -14,40 +14,40 @@
 */
 
 using System;
-using System.ComponentModel.Composition;
 using System.Globalization;
+using System.IO;
 
-namespace QuantConnect.Logging
+namespace QuantConnect.Logging2
 {
     /// <summary>
-    /// ILogHandler implementation that writes log output to result handler
+    /// ILogHandler implementation that writes log output to console.
     /// </summary>
-    [PartNotDiscoverable]
-    public class FunctionalLogHandler : ILogHandler
+    public class ConsoleLogHandler : ILogHandler
     {
-        private const string DateFormat = "yyyyMMdd HH:mm:ss";
-        private readonly Action<string> _debug;
-        private readonly Action<string> _trace;
-        private readonly Action<string> _error;
+        private const string DefaultDateFormat = "yyyyMMdd HH:mm:ss.fff";
+        private readonly TextWriter _trace;
+        private readonly TextWriter _error;
+        private readonly string _dateFormat;
 
         /// <summary>
-        /// Default constructor to handle MEF.
+        /// Initializes a new instance of the <see cref="QuantConnect.Logging.ConsoleLogHandler"/> class.
         /// </summary>
-        public FunctionalLogHandler()
+        public ConsoleLogHandler()
+            : this(DefaultDateFormat)
         {
-
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantConnect.Logging.FunctionalLogHandler"/> class.
+        /// Initializes a new instance of the <see cref="QuantConnect.Logging.ConsoleLogHandler"/> class.
         /// </summary>
-        public FunctionalLogHandler(Action<string> debug, Action<string> trace, Action<string> error)
+        /// <param name="dateFormat">Specifies the date format to use when writing log messages to the console window</param>
+        public ConsoleLogHandler(string dateFormat = DefaultDateFormat)
         {
             // saves references to the real console text writer since in a deployed state we may overwrite this in order
             // to redirect messages from algorithm to result handler
-            _debug = debug;
-            _trace = trace;
-            _error = error;
+            _trace = Console.Out;
+            _error = Console.Error;
+            _dateFormat = dateFormat;
         }
 
         /// <summary>
@@ -56,10 +56,13 @@ namespace QuantConnect.Logging
         /// <param name="text">The error text to log</param>
         public void Error(string text)
         {
-            if (_error != null)
-            {
-                _error(DateTime.Now.ToString(DateFormat, CultureInfo.InvariantCulture) + " ERROR " + text);
-            }
+#if DEBUG
+            Console.ForegroundColor = ConsoleColor.Red;
+#endif
+            _error.WriteLine(DateTime.Now.ToString(_dateFormat, CultureInfo.InvariantCulture) + " ERROR:: " + text);
+#if DEBUG
+            Console.ResetColor();
+#endif
         }
 
         /// <summary>
@@ -68,10 +71,7 @@ namespace QuantConnect.Logging
         /// <param name="text">The debug text to log</param>
         public void Debug(string text)
         {
-            if (_debug != null)
-            {
-                _debug(DateTime.Now.ToString(DateFormat, CultureInfo.InvariantCulture) + " DEBUG " + text);
-            }
+            _trace.WriteLine(DateTime.Now.ToString(_dateFormat, CultureInfo.InvariantCulture) + " DEBUG:: " + text);
         }
 
         /// <summary>
@@ -80,10 +80,7 @@ namespace QuantConnect.Logging
         /// <param name="text">The trace text to log</param>
         public void Trace(string text)
         {
-            if (_trace != null)
-            {
-                _trace(DateTime.Now.ToString(DateFormat, CultureInfo.InvariantCulture) + " TRACE " + text);
-            }
+            _trace.WriteLine(DateTime.Now.ToString(_dateFormat, CultureInfo.InvariantCulture) + " Trace:: " + text);
         }
 
         /// <summary>

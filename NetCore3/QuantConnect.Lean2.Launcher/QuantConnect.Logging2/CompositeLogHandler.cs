@@ -1,4 +1,4 @@
-﻿/*
+/*
  * QUANTCONNECT.COM - Democratizing Finance, Empowering Individuals.
  * Lean Algorithmic Trading Engine v2.0. Copyright 2014 QuantConnect Corporation.
  * 
@@ -15,28 +15,28 @@
 
 using System;
 
-namespace QuantConnect.Logging
+namespace QuantConnect.Logging2
 {
     /// <summary>
     /// Provides an <see cref="ILogHandler"/> implementation that composes multiple handlers
     /// </summary>
-    public class CompositeNLogHandler : ILogHandler
+    public class CompositeLogHandler : ILogHandler
     {
         private readonly ILogHandler[] _handlers;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompositeNLogHandler"/> that pipes log messages to the console and log.txt
+        /// Initializes a new instance of the <see cref="CompositeLogHandler"/> that pipes log messages to the console and log.txt
         /// </summary>
-        public CompositeNLogHandler()
-            : this(new ConsoleLogHandler(), new NLogHandler())
+        public CompositeLogHandler()
+            : this(new ConsoleLogHandler(), new FileLogHandler())
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CompositeNLogHandler"/> class from the specified handlers
+        /// Initializes a new instance of the <see cref="CompositeLogHandler"/> class from the specified handlers
         /// </summary>
         /// <param name="handlers">The implementations to compose</param>
-        public CompositeNLogHandler(params ILogHandler[] handlers)
+        public CompositeLogHandler(params ILogHandler[] handlers)
         {
             if (handlers == null || handlers.Length == 0)
             {
