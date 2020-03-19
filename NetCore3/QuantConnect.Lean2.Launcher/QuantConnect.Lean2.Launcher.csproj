@@ -11,4 +11,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+  </ItemGroup>
 </Project>
