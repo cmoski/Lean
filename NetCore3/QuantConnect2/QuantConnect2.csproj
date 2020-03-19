@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Algorithm\" />
+    <Folder Include="API\" />
+    <Folder Include="Benchmarks\" />
+    <Folder Include="Brokerages\" />
+    <Folder Include="Data\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Indicators\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Notifications\" />
+    <Folder Include="Orders\" />
+    <Folder Include="Packets\" />
+    <Folder Include="Parameters\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Python\" />
+    <Folder Include="Scheduling\" />
+    <Folder Include="Securities\" />
+    <Folder Include="Statistics\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="decimal.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="decimal.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
