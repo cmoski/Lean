@@ -17,7 +17,7 @@ using System;
 using System.Globalization;
 using System.IO;
 
-namespace QuantConnect.Logging2
+namespace QuantConnect.Logging
 {
     /// <summary>
     /// ILogHandler implementation that writes log output to console.

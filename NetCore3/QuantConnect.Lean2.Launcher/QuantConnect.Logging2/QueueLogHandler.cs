@@ -18,7 +18,7 @@ using System.Collections.Concurrent;
 using System.Globalization;
 using System.IO;
 
-namespace QuantConnect.Logging2
+namespace QuantConnect.Logging
 {
     /// <summary>
     /// ILogHandler implementation that queues all logs and writes them when instructed.

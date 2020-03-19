@@ -15,7 +15,7 @@
 
 using System;
 
-namespace QuantConnect.Logging2
+namespace QuantConnect.Logging
 {
     /// <summary>
     /// Provides an <see cref="ILogHandler"/> implementation that composes multiple handlers
