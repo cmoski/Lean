@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-/*
+
 using System;
 using com.fxcm.entity;
 using com.fxcm.fix;
@@ -255,4 +255,3 @@ namespace QuantConnect.Brokerages.Fxcm
         }
     }
 }
-*/

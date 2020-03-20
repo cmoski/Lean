@@ -14,20 +14,13 @@
     <Folder Include="Alpaca\" />
     <Folder Include="Backtesting\" />
     <Folder Include="Bitfinex\" />
-    <Folder Include="Fxcm\" />
     <Folder Include="GDAX\" />
-    <Folder Include="InteractiveBrokers\" />
     <Folder Include="Oanda\" />
     <Folder Include="Paper\" />
     <Folder Include="Tradier\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Fxcm\QuantConnect.Fxcm.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="InteractiveBrokers\IB-symbol-map.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Remove="InteractiveBrokers\IB-symbol-map.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
@@ -40,5 +33,87 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NodaTime" Version="2.4.7" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="InteractiveBrokers\Client\AccountDownloadEndEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\InteractiveBrokersStateManager.cs" />
+    <Compile Remove="InteractiveBrokers\InteractiveBrokersBrokerage.cs" />
+    <Compile Remove="InteractiveBrokers\InteractiveBrokersSymbolMapper.cs" />
+    <Compile Remove="InteractiveBrokers\InteractiveBrokersAccountData.cs" />
+    <Compile Remove="InteractiveBrokers\InteractiveBrokersBrokerageFactory.cs" />
+    <Compile Remove="InteractiveBrokers\HistoricalDataType.cs" />
+    <Compile Remove="InteractiveBrokers\FinancialAdvisor\AccountAlias.cs" />
+    <Compile Remove="InteractiveBrokers\FinancialAdvisor\AllocationProfile.cs" />
+    <Compile Remove="InteractiveBrokers\FinancialAdvisor\FinancialAdvisorConfiguration.cs" />
+    <Compile Remove="InteractiveBrokers\FinancialAdvisor\Allocation.cs" />
+    <Compile Remove="InteractiveBrokers\FinancialAdvisor\Group.cs" />
+    <Compile Remove="InteractiveBrokers\Client\FamilyCodesEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\HeadTimestampEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\OrderType.cs" />
+    <Compile Remove="InteractiveBrokers\Client\RightType.cs" />
+    <Compile Remove="InteractiveBrokers\Client\HistoricalDataEndEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\UpdateNewsBulletinEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ReceiveFaEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\VerifyAndAuthCompletedEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\RerouteMktDepthReqEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\SecurityType.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ManagedAccountsEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickStringEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\PositionMultiEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickSnapshotEndEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickReqParamsEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\HistogramDataEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\DisplayGroupUpdatedEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\DeltaNeutralValidationEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\RealtimeBarEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickGenericEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\UpdateMarketDepthEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\OrderStatus.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ContractDetailsEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\CurrentTimeUtcEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\NewsProvidersEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\PositionEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\VerifyCompletedEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ScannerParametersEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\SmartComponentsEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\MarketRuleEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\OrderStatusEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickPriceEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ExecutionDetailsEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\HistoricalDataEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\UpdateAccountValueEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\SymbolSamplesEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\UpdateMarketDepthLevel2EventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ScannerDataEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\HistoricalDataUpdateEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\VerifyMessageApiEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\FundamentalDataEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\NewsArticleEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\DisplayGroupListEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\HistoricalNewsEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ErrorEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\RequestEndEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\UpdateAccountTimeEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\SecurityDefinitionOptionParameterEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\RerouteMktDataReqEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\HistoricalNewsEndEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\OpenOrderEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\InteractiveBrokersClient.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickOptionComputationEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\MktDepthExchangesEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\PnlSingleEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickNewsEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\PnlEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\SoftDollarTiersEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\VerifyAndAuthMessageApiEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickSizeEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\MarketDataTypeEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\NextValidIdEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TickEfpEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\TimeInForce.cs" />
+    <Compile Remove="InteractiveBrokers\Client\UpdatePortfolioEventArgs.cs" />
+    <Compile Remove="Fxcm\FxcmBrokerage.DataQueueHandler.cs" />
+    <Compile Remove="Fxcm\FxcmBrokerage.cs" />
   </ItemGroup>
 </Project>
