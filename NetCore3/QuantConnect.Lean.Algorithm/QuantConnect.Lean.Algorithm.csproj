@@ -10,4 +10,52 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Alphas\NullAlphaModel.py" />
+    <None Remove="Execution\ImmediateExecutionModel.py" />
+    <None Remove="Execution\NullExecutionModel.py" />
+    <None Remove="Portfolio\NullPortfolioConstructionModel.py" />
+    <None Remove="Risk\CompositeRiskManagementModel.py" />
+    <None Remove="Risk\NullRiskManagementModel.py" />
+    <None Remove="Selection\ManualUniverseSelectionModel.py" />
+    <None Remove="Selection\UniverseSelectionModel.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Alphas\NullAlphaModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Execution\ImmediateExecutionModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Execution\NullExecutionModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Portfolio\NullPortfolioConstructionModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Risk\CompositeRiskManagementModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Risk\NullRiskManagementModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Selection\ManualUniverseSelectionModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Selection\UniverseSelectionModel.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Alphas\" />
+    <Folder Include="Execution\" />
+    <Folder Include="Portfolio\" />
+    <Folder Include="Risk\" />
+    <Folder Include="Selection\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Indicators\QuantConnect.Lean.Indicators.csproj" />
+    <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+  </ItemGroup>
 </Project>
