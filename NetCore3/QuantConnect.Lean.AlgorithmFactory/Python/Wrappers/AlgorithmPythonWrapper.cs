@@ -70,7 +70,7 @@ namespace QuantConnect.AlgorithmFactory.Python.Wrappers
                     var pyList = module.Dir();
                     foreach (var name in pyList)
                     {
-                        Type type;
+                        Type type = null;
                         var attr = module.GetAttr(name.ToString());
                         var repr = attr.Repr().GetStringBetweenChars('\'', '\'');
 

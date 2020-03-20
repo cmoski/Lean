@@ -80,6 +80,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Algorithm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Algorithm.CSharp", "NetCore3\QuantConnect.Lean.Algorithm.CSharp\QuantConnect.Lean.Algorithm.CSharp.csproj", "{7B27522A-A6A8-4498-A1F7-29314CBD3D19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.AlgorithmFactory", "NetCore3\QuantConnect.Lean.AlgorithmFactory\QuantConnect.Lean.AlgorithmFactory.csproj", "{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -306,6 +308,14 @@ Global
 		{7B27522A-A6A8-4498-A1F7-29314CBD3D19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B27522A-A6A8-4498-A1F7-29314CBD3D19}.Release|x64.ActiveCfg = Release|Any CPU
 		{7B27522A-A6A8-4498-A1F7-29314CBD3D19}.Release|x64.Build.0 = Release|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Debug|x64.Build.0 = Debug|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Release|x64.ActiveCfg = Release|Any CPU
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -347,5 +357,6 @@ Global
 		{452EC3C8-C394-4DCE-B3F1-9EA199F364AF} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 		{93F8B377-3FF3-442E-BED5-46DBB3F76C32} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 		{7B27522A-A6A8-4498-A1F7-29314CBD3D19} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
+		{29E9ADCC-BE8D-4691-9771-4BA4FF1F5D5C} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 	EndGlobalSection
 EndGlobal

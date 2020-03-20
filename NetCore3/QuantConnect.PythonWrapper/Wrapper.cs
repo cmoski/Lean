@@ -73,6 +73,11 @@ namespace Python.Runtime
         {
             throw new NotImplementedException();
         }
+
+        public bool IsIterable()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Py
@@ -82,7 +87,7 @@ namespace Python.Runtime
             throw new NotImplementedException("Python is not yet supported");
         }
 
-        public static object Import(string import)
+        public static dynamic Import(string import)
         {
             throw new NotImplementedException("Python is not yet supported");
         }
@@ -95,6 +100,8 @@ namespace Python.Runtime
 
     public class PythonEngine
     {
+        public static object Version { get; set; }
+
         public static PyObject ModuleFromString(params string[] arguments)
         {
             throw new NotImplementedException("Python is not yet supported");
@@ -111,6 +118,11 @@ namespace Python.Runtime
         }
 
         public static void BeginAllowThreads()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void RunSimpleString(string v)
         {
             throw new NotImplementedException();
         }

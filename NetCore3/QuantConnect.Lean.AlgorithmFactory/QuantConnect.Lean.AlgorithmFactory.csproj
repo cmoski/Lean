@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Python\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
+    <ProjectReference Include="..\QuantConnect.PythonWrapper\QuantConnect.PythonWrapper.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm\QuantConnect.Lean.Algorithm.csproj" />
+  </ItemGroup>
+</Project>
