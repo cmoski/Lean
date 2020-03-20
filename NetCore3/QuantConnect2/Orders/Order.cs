@@ -23,6 +23,7 @@ using static QuantConnect.StringExtensions;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleToAttribute("QuantConnect.Lean.Brokerages")]
+[assembly: InternalsVisibleToAttribute("QuantConnect.Lean.Engine2")]
 namespace QuantConnect.Orders
 {
     /// <summary>

@@ -210,7 +210,7 @@ namespace QuantConnect.Lean.Engine.Setup
                         // If we're going to receive market data from IB,
                         // set the default subscription limit to 100,
                         // algorithms can override this setting in the Initialize method
-                        if (brokerage is InteractiveBrokersBrokerage &&
+                        if (brokerage.GetType().FullName.Contains("InteractiveBrokersBrokerage") &&
                             liveJob.DataQueueHandler.EndsWith("InteractiveBrokersBrokerage"))
                         {
                             algorithm.Settings.DataSubscriptionLimit = 100;
