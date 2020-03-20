@@ -21,6 +21,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="InteractiveBrokers\IB-symbol-map.json" />
+    <None Remove="Fxcm\QuantConnect.Fxcm.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
@@ -35,7 +36,6 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="InteractiveBrokers\Client\AccountDownloadEndEventArgs.cs" />
     <Compile Remove="InteractiveBrokers\InteractiveBrokersStateManager.cs" />
     <Compile Remove="InteractiveBrokers\InteractiveBrokersBrokerage.cs" />
     <Compile Remove="InteractiveBrokers\InteractiveBrokersSymbolMapper.cs" />
@@ -57,6 +57,7 @@
     <Compile Remove="InteractiveBrokers\Client\VerifyAndAuthCompletedEventArgs.cs" />
     <Compile Remove="InteractiveBrokers\Client\RerouteMktDepthReqEventArgs.cs" />
     <Compile Remove="InteractiveBrokers\Client\SecurityType.cs" />
+    <Compile Remove="InteractiveBrokers\Client\CommissionReportEventArgs.cs" />
     <Compile Remove="InteractiveBrokers\Client\ManagedAccountsEventArgs.cs" />
     <Compile Remove="InteractiveBrokers\Client\TickStringEventArgs.cs" />
     <Compile Remove="InteractiveBrokers\Client\PositionMultiEventArgs.cs" />
@@ -113,7 +114,16 @@
     <Compile Remove="InteractiveBrokers\Client\TickEfpEventArgs.cs" />
     <Compile Remove="InteractiveBrokers\Client\TimeInForce.cs" />
     <Compile Remove="InteractiveBrokers\Client\UpdatePortfolioEventArgs.cs" />
-    <Compile Remove="Fxcm\FxcmBrokerage.DataQueueHandler.cs" />
+    <Compile Remove="InteractiveBrokers\Client\AccountUpdateMultiEventArgs.cs" />
+    <Compile Remove="InteractiveBrokers\Client\ActionSide.cs" />
+    <Compile Remove="InteractiveBrokers\Client\AccountSummaryEventArgs.cs" />
+    <Compile Remove="Fxcm\FxcmBrokerage.Messaging.cs" />
     <Compile Remove="Fxcm\FxcmBrokerage.cs" />
+    <Compile Remove="Fxcm\FxcmBrokerageFactory.cs" />
+    <Compile Remove="Fxcm\FxcmBrokerage.Util.cs" />
+    <Compile Remove="Fxcm\FxcmSymbolMapper.cs" />
+    <Compile Remove="InteractiveBrokers\Client\AccountDownloadEndEventArgs.cs" />
+    <Compile Remove="Fxcm\FxcmBrokerage.DataQueueHandler.cs" />
+    <Compile Remove="InteractiveBrokers\Client\AgentDescription.cs" />
   </ItemGroup>
 </Project>
