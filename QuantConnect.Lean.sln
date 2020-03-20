@@ -62,7 +62,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetCore 3", "NetCore 3", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean2.Launcher", "NetCore3\QuantConnect.Lean2.Launcher\QuantConnect.Lean2.Launcher.csproj", "{684BC5E6-5B4F-4F62-A723-1851BB1097A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Logging2", "NetCore3\QuantConnect.Lean2.Launcher\QuantConnect.Logging2\QuantConnect.Logging2.csproj", "{4DCEA00B-B0B0-4B3C-A1F6-ABD8D8D25930}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Logging2", "NetCore3\QuantConnect.Logging2\QuantConnect.Logging2.csproj", "{4DCEA00B-B0B0-4B3C-A1F6-ABD8D8D25930}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrated", "Migrated", "{4AA38A6B-56BE-4BDC-A9A8-52E23D5A9523}"
 EndProject

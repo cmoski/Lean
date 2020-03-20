@@ -4,6 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
   </ItemGroup>
@@ -20,7 +26,6 @@
     <Folder Include="Orders\" />
     <Folder Include="Packets\" />
     <Folder Include="Parameters\" />
-    <Folder Include="Properties\" />
     <Folder Include="Python\" />
     <Folder Include="Scheduling\" />
     <Folder Include="Securities\" />
@@ -38,13 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
-    <ProjectReference Include="..\QuantConnect.Lean2.Launcher\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
     <ProjectReference Include="..\QuantConnect.PythonWrapper\QuantConnect.PythonWrapper.csproj" />
+    <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NodaTime" Version="2.4.7" />
     <PackageReference Include="QLNet" Version="1.11.3" />
     <PackageReference Include="MathNet.Numerics" Version="4.9.0" />
+    <PackageReference Include="CloneExtensions" Version="1.4.2" />
+    <PackageReference Include="Fasterflect.Netstandard" Version="1.0.9" />
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="4.7.0" />
   </ItemGroup>
 </Project>
