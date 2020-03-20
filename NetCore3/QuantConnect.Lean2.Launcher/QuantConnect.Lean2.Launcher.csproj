@@ -14,5 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
     <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
+    <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
   </ItemGroup>
 </Project>

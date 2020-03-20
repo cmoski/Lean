@@ -34,7 +34,7 @@ namespace Python.Runtime
             throw new NotImplementedException("Python is not yet supported");
         }
 
-        public dynamic InvokeMethod(string methodName)
+        public dynamic InvokeMethod(string methodName, dynamic[] dynamic = null)
         {
             throw new NotImplementedException("Python is not yet supported");
         }
@@ -58,6 +58,16 @@ namespace Python.Runtime
         {
             throw new NotImplementedException();
         }
+
+        public dynamic GetIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public dynamic Invoke()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Py
@@ -71,6 +81,11 @@ namespace Python.Runtime
         {
             throw new NotImplementedException("Python is not yet supported");
         }
+
+        public static object kw(string v1, bool v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class PythonEngine
@@ -80,7 +95,17 @@ namespace Python.Runtime
             throw new NotImplementedException("Python is not yet supported");
         }
 
-        public static void Exec(string code, object p, object handle)
+        public static void Exec(string code, object p = null, object handle = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void BeginAllowThreads()
         {
             throw new NotImplementedException();
         }
@@ -172,15 +197,39 @@ namespace Python.Runtime
             throw new NotImplementedException();
         }
 
+        public static dynamic ToPython(this object T)
+        {
+            throw new NotImplementedException();
+        }
+
         public static dynamic DefineDynamicAssembly(this AppDomain domain, AssemblyName name, AssemblyBuilderAccess an)
         {
             throw new NotImplementedException();
         }
     }
 
-    public class PyString
+    public class PyString : PyObject
     {
+        public PyString(string obj)
+        {
+            throw new NotImplementedException();
+        }
         public static bool IsStringType(PyObject item)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class PyTuple
+    {
+        private PyObject[] pyObject;
+
+        public PyTuple(PyObject[] pyObject)
+        {
+            this.pyObject = pyObject;
+        }
+
+        public static bool IsTupleType(dynamic value)
         {
             throw new NotImplementedException();
         }
