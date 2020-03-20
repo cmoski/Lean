@@ -68,6 +68,11 @@ namespace Python.Runtime
         {
             throw new NotImplementedException();
         }
+
+        public dynamic GetItem(PyObject pyKey)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Py
@@ -158,6 +163,11 @@ namespace Python.Runtime
         }
 
         public dynamic GetItem(string item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static bool IsDictType(PyObject headers)
         {
             throw new NotImplementedException();
         }
