@@ -35,12 +35,13 @@ namespace QuantConnect.Algorithm.CSharp
         public override void Initialize()
         {
             throw new NotImplementedException();
+            /*
             SetStartDate(2013, 10, 07);  //Set Start Date
             SetEndDate(2013, 10, 11);    //Set End Date
             SetCash(100000);             //Set Strategy Cash
                                          // Find more symbols here: http://quantconnect.com/data
             AddEquity("SPY", Resolution.Second);
-
+            
             var engine = REngine.GetInstance();
             engine.Evaluate("print('This is from R command.')");
             // .NET Framework array to R vector.
@@ -54,7 +55,7 @@ namespace QuantConnect.Algorithm.CSharp
             // you should always dispose of the REngine properly.
             // After disposing of the engine, you cannot reinitialize nor reuse it
             engine.Dispose();
-
+            */
         }
 
         /// <summary>

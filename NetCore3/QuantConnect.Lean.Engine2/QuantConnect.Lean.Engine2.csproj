@@ -21,4 +21,19 @@
     <Folder Include="Storage\" />
     <Folder Include="TransactionHandlers\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm\QuantConnect.Lean.Algorithm.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm.CSharp\QuantConnect.Lean.Algorithm.CSharp.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Brokerages\QuantConnect.Lean.Brokerages.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm.Framework\QuantConnect.Lean.Algorithm.Framework.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.AlgorithmFactory\QuantConnect.Lean.AlgorithmFactory.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Api\QuantConnect.Lean.Api.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Compression\QuantConnect.Lean.Compression.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Indicators\QuantConnect.Lean.Indicators.csproj" />
+    <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+    <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.2" />
+  </ItemGroup>
 </Project>

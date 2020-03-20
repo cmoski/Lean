@@ -20,9 +20,9 @@ using System.IO;
 using System.Linq;
 using QuantConnect.Data;
 using QuantConnect.Interfaces;
-using System.Runtime.Caching;
 using QuantConnect.Data.Fundamental;
 using QuantConnect.Data.UniverseSelection;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace QuantConnect.Lean.Engine.DataFeeds
 {
@@ -38,9 +38,7 @@ namespace QuantConnect.Lean.Engine.DataFeeds
         private readonly SubscriptionDataConfig _config;
         private BaseData _factory;
         private bool _shouldCacheDataPoints;
-        private static readonly MemoryCache BaseDataSourceCache = new MemoryCache("BaseDataSourceCache",
-            // Cache can use up to 70% of the installed physical memory
-            new NameValueCollection { { "physicalMemoryLimitPercentage", "70" } });
+        private static readonly MemoryCache BaseDataSourceCache = new MemoryCache(new MemoryCacheOptions());
         private static readonly CacheItemPolicy CachePolicy = new CacheItemPolicy
         {
             // Cache entry should be evicted if it has not been accessed in given span of time:
@@ -100,9 +98,9 @@ namespace QuantConnect.Lean.Engine.DataFeeds
             _shouldCacheDataPoints = _shouldCacheDataPoints &&
                 // only cache local files
                 source.TransportMedium == SubscriptionTransportMedium.LocalFile;
-            var cacheItem = _shouldCacheDataPoints
-                ? BaseDataSourceCache.GetCacheItem(source.Source + _config.Type) : null;
-            if (cacheItem == null)
+            cache = _shouldCacheDataPoints
+                ? BaseDataSourceCache.Get(source.Source + _config.Type) as List<BaseData> : null;
+            if (cache == null)
             {
                 cache = new List<BaseData>();
                 using (var reader = CreateStreamReader(source))
@@ -165,14 +163,12 @@ namespace QuantConnect.Lean.Engine.DataFeeds
                     yield break;
                 }
 
-                cacheItem = new CacheItem(source.Source + _config.Type, cache);
-                BaseDataSourceCache.Add(cacheItem, CachePolicy);
+                BaseDataSourceCache.Set(source.Source + _config.Type, cache);
             }
-            cache = cacheItem.Value as List<BaseData>;
             if (cache == null)
             {
                 throw new InvalidOperationException("CacheItem can not be cast into expected type. " +
-                    $"Type is: {cacheItem.Value.GetType()}");
+                    $"Type is: {cache.GetType()}");
             }
             // Find the first data point 10 days (just in case) before the desired date
             // and subtract one item (just in case there was a time gap and data.Time is after _date)
