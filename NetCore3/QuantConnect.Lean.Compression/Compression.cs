@@ -218,7 +218,7 @@ namespace QuantConnect
                                 zipStream.Read(buffer, 0, (int)entry.Size);
 
                                 //Save into array:
-                                data.Add(entry.Name, buffer.GetString(encoding));
+                                data.Add(entry.Name, encoding.GetString(buffer));
                             }
                             else
                             {
@@ -422,7 +422,7 @@ namespace QuantConnect
                             // skip directories
                             if (file.Name == "") continue;
                             var filepath = Path.Combine(directory, file.FullName);
-                            if (OS.IsLinux) filepath = filepath.Replace(@"\", "/");
+                            if (Environment.OSVersion.Platform == PlatformID.Unix) filepath = filepath.Replace(@"\", "/");
                             var outputFile = new FileInfo(filepath);
                             if (!outputFile.Directory.Exists)
                             {
