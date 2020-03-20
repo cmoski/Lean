@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Alphas\" />
+    <Folder Include="AltData\" />
+    <Folder Include="Benchmarks\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm\QuantConnect.Lean.Algorithm.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm.Framework\QuantConnect.Lean.Algorithm.Framework.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Indicators\QuantConnect.Lean.Indicators.csproj" />
+    <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="CustomSecurityInitializerAlgorithm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Accord.MachineLearning" Version="3.8.0" />
+    <PackageReference Include="Accord.Fuzzy" Version="3.8.0" />
+  </ItemGroup>
+</Project>
