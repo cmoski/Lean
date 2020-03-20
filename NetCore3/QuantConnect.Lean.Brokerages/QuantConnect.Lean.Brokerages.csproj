@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Alpaca\" />
+    <Folder Include="Backtesting\" />
+    <Folder Include="Bitfinex\" />
+    <Folder Include="Fxcm\" />
+    <Folder Include="GDAX\" />
+    <Folder Include="InteractiveBrokers\" />
+    <Folder Include="Oanda\" />
+    <Folder Include="Paper\" />
+    <Folder Include="Tradier\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Fxcm\QuantConnect.Fxcm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="InteractiveBrokers\IB-symbol-map.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
