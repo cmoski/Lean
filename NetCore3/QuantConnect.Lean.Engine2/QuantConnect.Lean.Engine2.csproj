@@ -10,4 +10,15 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Alphas\" />
+    <Folder Include="DataFeeds\" />
+    <Folder Include="HistoricalData\" />
+    <Folder Include="RealTime\" />
+    <Folder Include="Results\" />
+    <Folder Include="Server\" />
+    <Folder Include="Setup\" />
+    <Folder Include="Storage\" />
+    <Folder Include="TransactionHandlers\" />
+  </ItemGroup>
 </Project>
