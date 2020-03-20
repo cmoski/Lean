@@ -39,11 +39,6 @@ namespace QuantConnect.Lean.Engine.DataFeeds
         private BaseData _factory;
         private bool _shouldCacheDataPoints;
         private static readonly MemoryCache BaseDataSourceCache = new MemoryCache(new MemoryCacheOptions());
-        private static readonly CacheItemPolicy CachePolicy = new CacheItemPolicy
-        {
-            // Cache entry should be evicted if it has not been accessed in given span of time:
-            SlidingExpiration = TimeSpan.FromMinutes(5)
-        };
 
         /// <summary>
         /// Event fired when the specified source is considered invalid, this may
@@ -163,7 +158,7 @@ namespace QuantConnect.Lean.Engine.DataFeeds
                     yield break;
                 }
 
-                BaseDataSourceCache.Set(source.Source + _config.Type, cache);
+                BaseDataSourceCache.Set(source.Source + _config.Type, cache, new MemoryCacheEntryOptions { SlidingExpiration = TimeSpan.FromMinutes(5) });
             }
             if (cache == null)
             {
