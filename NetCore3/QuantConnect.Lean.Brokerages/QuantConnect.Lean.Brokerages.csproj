@@ -29,4 +29,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Compression\QuantConnect.Lean.Compression.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Api\QuantConnect.Lean.Api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="websocketsharp.core" Version="1.0.0" />
+  </ItemGroup>
 </Project>
