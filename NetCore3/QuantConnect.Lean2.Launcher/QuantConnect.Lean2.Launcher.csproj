@@ -17,4 +17,9 @@
     <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
     <ProjectReference Include="..\QuantConnect.Lean.Engine2\QuantConnect.Lean.Engine2.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
