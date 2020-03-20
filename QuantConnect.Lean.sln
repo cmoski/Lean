@@ -76,6 +76,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Indicator
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Algorithm", "NetCore3\QuantConnect.Lean.Algorithm\QuantConnect.Lean.Algorithm.csproj", "{452EC3C8-C394-4DCE-B3F1-9EA199F364AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Algorithm.Framework", "NetCore3\QuantConnect.Lean.Algorithm.Framework\QuantConnect.Lean.Algorithm.Framework.csproj", "{93F8B377-3FF3-442E-BED5-46DBB3F76C32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -286,6 +288,14 @@ Global
 		{452EC3C8-C394-4DCE-B3F1-9EA199F364AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{452EC3C8-C394-4DCE-B3F1-9EA199F364AF}.Release|x64.ActiveCfg = Release|Any CPU
 		{452EC3C8-C394-4DCE-B3F1-9EA199F364AF}.Release|x64.Build.0 = Release|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Debug|x64.Build.0 = Debug|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Release|x64.ActiveCfg = Release|Any CPU
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -325,5 +335,6 @@ Global
 		{1F59AC3E-FFA6-4767-8440-71FE08F96C18} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 		{14B0D08B-F85F-4BFD-A77C-209EF84D095D} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 		{452EC3C8-C394-4DCE-B3F1-9EA199F364AF} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
+		{93F8B377-3FF3-442E-BED5-46DBB3F76C32} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 	EndGlobalSection
 EndGlobal
