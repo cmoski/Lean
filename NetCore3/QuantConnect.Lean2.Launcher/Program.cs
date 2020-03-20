@@ -19,7 +19,7 @@ using System.ComponentModel.Composition;
 using System.Threading;
 using QuantConnect.Configuration;
 using QuantConnect.Lean.Engine;
-using QuantConnect.Logging2;
+using QuantConnect.Logging;
 using QuantConnect.Packets;
 using QuantConnect.Util;
 
