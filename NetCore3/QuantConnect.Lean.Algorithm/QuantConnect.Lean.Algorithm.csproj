@@ -10,14 +10,4 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="Class1.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CandlestickPatterns\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
-    <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
-  </ItemGroup>
 </Project>
