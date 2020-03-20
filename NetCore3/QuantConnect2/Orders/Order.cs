@@ -20,12 +20,15 @@ using Newtonsoft.Json;
 using QuantConnect.Interfaces;
 using QuantConnect.Securities;
 using static QuantConnect.StringExtensions;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleToAttribute("QuantConnect.Lean.Brokerages")]
 namespace QuantConnect.Orders
 {
     /// <summary>
     /// Order struct for placing new trade
     /// </summary>
+
     public abstract class Order
     {
         private decimal _quantity;
@@ -235,7 +238,7 @@ namespace QuantConnect.Orders
         public decimal GetValue(Security security)
         {
             var value = GetValueImpl(security);
-            return value*security.QuoteCurrency.ConversionRate*security.SymbolProperties.ContractMultiplier;
+            return value * security.QuoteCurrency.ConversionRate * security.SymbolProperties.ContractMultiplier;
         }
 
         /// <summary>
