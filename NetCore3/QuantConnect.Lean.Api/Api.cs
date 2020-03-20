@@ -20,7 +20,6 @@ using System.Linq;
 using System.Net;
 using Newtonsoft.Json;
 using QuantConnect.API;
-using QuantConnect.Data.Market;
 using QuantConnect.Interfaces;
 using QuantConnect.Orders;
 using RestSharp;
