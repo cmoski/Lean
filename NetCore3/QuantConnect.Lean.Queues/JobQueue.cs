@@ -52,7 +52,7 @@ namespace QuantConnect.Queues
             get
             {
                 // we expect this dll to be copied into the output directory
-                return Config.Get("algorithm-location", "QuantConnect.Algorithm.CSharp.dll");
+                return Config.Get("algorithm-location", "QuantConnect.Lean.Algorithm.CSharp.dll");
             }
         }
 
