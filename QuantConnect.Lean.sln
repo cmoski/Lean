@@ -92,6 +92,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Brokerage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Queues", "NetCore3\QuantConnect.Lean.Queues\QuantConnect.Lean.Queues.csproj", "{5A32CD35-1E96-4B75-814D-67CB6BA2C7F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantConnect.Lean.Messaging", "NetCore3\QuantConnect.Lean.Messaging\QuantConnect.Lean.Messaging.csproj", "{05B7B0C1-5C6A-4736-8713-490D625B5641}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -366,6 +368,14 @@ Global
 		{5A32CD35-1E96-4B75-814D-67CB6BA2C7F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A32CD35-1E96-4B75-814D-67CB6BA2C7F8}.Release|x64.ActiveCfg = Release|Any CPU
 		{5A32CD35-1E96-4B75-814D-67CB6BA2C7F8}.Release|x64.Build.0 = Release|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Debug|x64.Build.0 = Debug|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Release|x64.ActiveCfg = Release|Any CPU
+		{05B7B0C1-5C6A-4736-8713-490D625B5641}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -413,5 +423,6 @@ Global
 		{DF9C8B36-A029-4CDE-86FE-3017EB103F25} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 		{F8DDF967-CBF7-436F-BC94-734407A7F305} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 		{5A32CD35-1E96-4B75-814D-67CB6BA2C7F8} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
+		{05B7B0C1-5C6A-4736-8713-490D625B5641} = {1A7A09A7-8FFB-4CF9-9A39-47A1D1DB59F2}
 	EndGlobalSection
 EndGlobal
