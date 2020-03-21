@@ -16,7 +16,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
-using QuantConnect.Brokerages.Fxcm;
+//using QuantConnect.Brokerages.Fxcm;
 using QuantConnect.Data.Market;
 using QuantConnect.Logging;
 
@@ -25,9 +25,9 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
     [TestFixture]
     public partial class FxcmBrokerageTests
     {
-        [Test]
+        [Test, Ignore("FXCM not up yet")]
         public void GetsTickData()
-        {
+        {/*
             var brokerage = (FxcmBrokerage)Brokerage;
 
             brokerage.Subscribe(null, new List<Symbol> {Symbols.USDJPY, Symbols.EURGBP});
@@ -41,6 +41,7 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
                     Log.Trace("{0}: {1} - {2} / {3}", tick.Time.ToStringInvariant("yyyy-MM-dd HH:mm:ss.fff"), tick.Symbol, ((Tick)tick).BidPrice, ((Tick)tick).AskPrice);
                 }
             }
+            */
         }
     }
 }

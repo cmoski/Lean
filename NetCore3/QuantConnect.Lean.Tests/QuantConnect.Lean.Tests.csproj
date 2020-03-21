@@ -1,0 +1,453 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Moq" Version="4.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Algorithm\" />
+    <Folder Include="AlgorithmFactory\" />
+    <Folder Include="API\" />
+    <Folder Include="Brokerages\" />
+    <Folder Include="Common\" />
+    <Folder Include="Compression\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Engine\" />
+    <Folder Include="Indicators\" />
+    <Folder Include="Jupyter\" />
+    <Folder Include="Logging\" />
+    <Folder Include="Messaging\" />
+    <Folder Include="Python\" />
+    <Folder Include="RegressionAlgorithms\" />
+    <Folder Include="Report\" />
+    <Folder Include="TestData\" />
+    <Folder Include="ToolBox\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Jupyter\RegressionScripts\custom_data.py" />
+    <None Remove="Jupyter\RegressionScripts\Test_QuantBookHistory.py" />
+    <None Remove="Jupyter\RegressionScripts\Test_QuantBookIndicator.py" />
+    <None Remove="Python\Indicators\IndicatorExtensionsTests.py" />
+    <None Remove="RegressionAlgorithms\Test_AlgorithmPythonWrapper.py" />
+    <None Remove="RegressionAlgorithms\Test_CustomDataAlgorithm.py" />
+    <None Remove="RegressionAlgorithms\Test_MethodOverload.py" />
+    <None Remove="RegressionAlgorithms\Test_PythonExceptionInterpreter.py" />
+    <None Remove="TestData\00010101_05_example_psychsignal_testdata.csv" />
+    <None Remove="TestData\eurusd_candle_patterns.txt" />
+    <None Remove="TestData\ewz_candle_patterns.txt" />
+    <None Remove="TestData\frama.txt" />
+    <None Remove="TestData\FredVixData.json" />
+    <None Remove="TestData\FuturesExpiryFunctionsTestData.xml" />
+    <None Remove="TestData\gdax_accounts.txt" />
+    <None Remove="TestData\gdax_holding.txt" />
+    <None Remove="TestData\gdax_match.txt" />
+    <None Remove="TestData\gdax_openOrders.txt" />
+    <None Remove="TestData\gdax_order.txt" />
+    <None Remove="TestData\gdax_orderById.txt" />
+    <None Remove="TestData\gdax_pollTick.txt" />
+    <None Remove="TestData\gdax_tick.txt" />
+    <None Remove="TestData\gdax_ticker.txt" />
+    <None Remove="TestData\quandl_future_chris_cme_es1.csv" />
+    <None Remove="TestData\quandl_future_chris_cme_es2.csv" />
+    <None Remove="TestData\SampleMarketHoursDatabase.json" />
+    <None Remove="TestData\sec_report_raw_multiple.xml" />
+    <None Remove="TestData\sec_report_raw_single.xml" />
+    <None Remove="TestData\spy_10_min.txt" />
+    <None Remove="TestData\spy_acceleration_bands_20_4.txt" />
+    <None Remove="TestData\spy_ad.txt" />
+    <None Remove="TestData\spy_ad_osc.txt" />
+    <None Remove="TestData\spy_alma.txt" />
+    <None Remove="TestData\spy_apo.txt" />
+    <None Remove="TestData\spy_aroon_oscillator.txt" />
+    <None Remove="TestData\spy_atr.txt" />
+    <None Remove="TestData\spy_atr_wilder.txt" />
+    <None Remove="TestData\spy_bollinger_bands.txt" />
+    <None Remove="TestData\spy_bop.txt" />
+    <None Remove="TestData\spy_candle_patterns.txt" />
+    <None Remove="TestData\spy_cmo.txt" />
+    <None Remove="TestData\spy_coppock_curve.csv" />
+    <None Remove="TestData\spy_dema.txt" />
+    <None Remove="TestData\spy_heikin_ashi.txt" />
+    <None Remove="TestData\spy_hma.txt" />
+    <None Remove="TestData\spy_kama.txt" />
+    <None Remove="TestData\spy_logr14.txt" />
+    <None Remove="TestData\spy_mass_index_25.txt" />
+    <None Remove="TestData\spy_max.txt" />
+    <None Remove="TestData\spy_mfi.txt" />
+    <None Remove="TestData\spy_midpoint.txt" />
+    <None Remove="TestData\spy_midprice.txt" />
+    <None Remove="TestData\spy_min.txt" />
+    <None Remove="TestData\spy_natr.txt" />
+    <None Remove="TestData\spy_ohlcv.txt" />
+    <None Remove="TestData\spy_parabolic_SAR.txt" />
+    <None Remove="TestData\spy_ppo.txt" />
+    <None Remove="TestData\spy_rocr.txt" />
+    <None Remove="TestData\spy_swiss.txt" />
+    <None Remove="TestData\spy_t3.txt" />
+    <None Remove="TestData\spy_tema.txt" />
+    <None Remove="TestData\spy_tr.txt" />
+    <None Remove="TestData\spy_trima.txt" />
+    <None Remove="TestData\spy_trix.txt" />
+    <None Remove="TestData\spy_ultosc.txt" />
+    <None Remove="TestData\spy_var.txt" />
+    <None Remove="TestData\spy_with_adx.txt" />
+    <None Remove="TestData\spy_with_cci.txt" />
+    <None Remove="TestData\spy_with_don50.txt" />
+    <None Remove="TestData\spy_with_fisher.txt" />
+    <None Remove="TestData\spy_with_indicators.txt" />
+    <None Remove="TestData\spy_with_macd.txt" />
+    <None Remove="TestData\spy_with_obv.txt" />
+    <None Remove="TestData\spy_with_roc50.txt" />
+    <None Remove="TestData\spy_with_rocp50.txt" />
+    <None Remove="TestData\spy_with_stoch12k3.txt" />
+    <None Remove="TestData\spy_with_vwap.txt" />
+    <None Remove="TestData\spy_with_williamsR14.txt" />
+    <None Remove="TestData\stock_prices.csv" />
+    <None Remove="TestData\test_cash_equity.xml" />
+    <None Remove="TestData\test_cash_fills.xml" />
+    <None Remove="TestData\test_forex_equity.xml" />
+    <None Remove="TestData\test_forex_fills.xml" />
+    <None Remove="TestData\test_forex_fills_jwb_quantity.xml" />
+    <None Remove="TestData\test_forex_fills_mch_quantity.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Jupyter\RegressionScripts\custom_data.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Jupyter\RegressionScripts\Test_QuantBookHistory.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Jupyter\RegressionScripts\Test_QuantBookIndicator.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Python\Indicators\IndicatorExtensionsTests.py" />
+    <Content Include="RegressionAlgorithms\Test_AlgorithmPythonWrapper.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RegressionAlgorithms\Test_CustomDataAlgorithm.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RegressionAlgorithms\Test_MethodOverload.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RegressionAlgorithms\Test_PythonExceptionInterpreter.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\00010101_05_example_psychsignal_testdata.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\eurusd_candle_patterns.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\ewz_candle_patterns.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\frama.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\FredVixData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\FuturesExpiryFunctionsTestData.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_accounts.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_holding.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_match.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_openOrders.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_order.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_orderById.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_pollTick.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_tick.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\gdax_ticker.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\quandl_future_chris_cme_es1.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\quandl_future_chris_cme_es2.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\SampleMarketHoursDatabase.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\sec_report_raw_multiple.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\sec_report_raw_single.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_10_min.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_acceleration_bands_20_4.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_ad.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_ad_osc.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_alma.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_apo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_aroon_oscillator.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_atr.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_atr_wilder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_bollinger_bands.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_bop.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_candle_patterns.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_cmo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_coppock_curve.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_dema.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_heikin_ashi.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_hma.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_kama.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_logr14.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_mass_index_25.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_max.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_mfi.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_midpoint.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_midprice.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_min.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_natr.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_ohlcv.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_parabolic_SAR.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_ppo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_rocr.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_swiss.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_t3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_tema.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_tr.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_trima.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_trix.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_ultosc.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_var.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_adx.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_cci.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_don50.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_fisher.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_indicators.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_macd.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_obv.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_roc50.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_rocp50.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_stoch12k3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_vwap.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\spy_with_williamsR14.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\stock_prices.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\test_cash_equity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\test_cash_fills.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\test_forex_equity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\test_forex_fills.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\test_forex_fills_jwb_quantity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\test_forex_fills_mch_quantity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="RegressionAlgorithms\Test_Cash.cs" />
+    <Compile Remove="RegressionAlgorithms\Test_LiveAlgorithm.cs" />
+    <Compile Remove="RegressionAlgorithms\Test_MixedAssets.cs" />
+    <Compile Remove="RegressionAlgorithms\Test_OnEndOfDay.cs" />
+    <Compile Remove="RegressionAlgorithms\Test_SetHolding.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RegressionAlgorithms\Test_Cash.cs" />
+    <None Include="RegressionAlgorithms\Test_LiveAlgorithm.cs" />
+    <None Include="RegressionAlgorithms\Test_MixedAssets.cs" />
+    <None Include="RegressionAlgorithms\Test_OnEndOfDay.cs" />
+    <None Include="RegressionAlgorithms\Test_SetHolding.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="TestData\20151224_quote_american.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\aapl_fine_fundamental.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\CashTestingStrategy.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\daily-stock-picker-backtest.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\daily-stock-picker-live.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\fxVolumeDaily.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\fxVolumeHourly.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\fxVolumeMinute.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\multizip.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\spy_dpo.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\spy_with_ichimoku.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\spy_with_keltner.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm\QuantConnect.Lean.Algorithm.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm.CSharp\QuantConnect.Lean.Algorithm.CSharp.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Algorithm.Framework\QuantConnect.Lean.Algorithm.Framework.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.AlgorithmFactory\QuantConnect.Lean.AlgorithmFactory.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Api\QuantConnect.Lean.Api.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Brokerages\QuantConnect.Lean.Brokerages.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Compression\QuantConnect.Lean.Compression.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Engine2\QuantConnect.Lean.Engine2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Indicators\QuantConnect.Lean.Indicators.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Messaging\QuantConnect.Lean.Messaging.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean2.Launcher\QuantConnect.Lean2.Launcher.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Queues\QuantConnect.Lean.Queues.csproj" />
+    <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+    <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
+  </ItemGroup>
+</Project>
