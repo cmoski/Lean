@@ -13,7 +13,7 @@ namespace QuantConnect.Tests.Engine.DataProviders
     {
         private DefaultDataProvider _defaultDataProvider;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             _defaultDataProvider = new DefaultDataProvider();

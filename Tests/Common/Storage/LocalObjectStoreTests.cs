@@ -32,7 +32,7 @@ namespace QuantConnect.Tests.Common.Storage
 
         private ObjectStore _store;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             Config.Set("object-store-root", TestStorageRoot);
@@ -41,7 +41,7 @@ namespace QuantConnect.Tests.Common.Storage
             _store.Initialize("CSharp-TestAlgorithm", 0, 0, "", new Controls());
         }
 
-        [TestFixtureTearDown]
+        [TearDown]
         public void Cleanup()
         {
             Config.Set("object-store-root", StorageRootConfigurationValue);

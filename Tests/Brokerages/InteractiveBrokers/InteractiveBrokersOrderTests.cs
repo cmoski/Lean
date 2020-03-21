@@ -24,12 +24,12 @@ namespace QuantConnect.Tests.Brokerages.InteractiveBrokers
     [Ignore("These tests require the IBGateway to be installed.")]
     public class InteractiveBrokersForexOrderTests : BrokerageTests
     {
-        [TestFixtureSetUp]
+        [SetUp]
         public void InitializeBrokerage()
         {
         }
 
-        [TestFixtureTearDown]
+        [TearDown]
         public void DisposeBrokerage()
         {
         }

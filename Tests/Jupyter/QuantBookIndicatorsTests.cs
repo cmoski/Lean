@@ -25,7 +25,7 @@ namespace QuantConnect.Tests.Jupyter
     {
         dynamic _module;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             SymbolCache.Clear();

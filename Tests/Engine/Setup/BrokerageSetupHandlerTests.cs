@@ -46,7 +46,7 @@ namespace QuantConnect.Tests.Engine.Setup
 
         private TestableBrokerageSetupHandler _brokerageSetupHandler;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             _algorithm = new QCAlgorithm();
