@@ -16,6 +16,7 @@
     <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
     <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
     <ProjectReference Include="..\QuantConnect.Lean.Engine2\QuantConnect.Lean.Engine2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Queues\QuantConnect.Lean.Queues.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="config.json">
