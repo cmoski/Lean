@@ -467,8 +467,23 @@ namespace QuantConnect.Algorithm
         /// <returns>The ExponentialMovingAverage for the given parameters</returns>
         public ExponentialMovingAverage EMA(Symbol symbol, int period, Resolution? resolution = null, Func<IBaseData, decimal> selector = null)
         {
+            return EMA(symbol, period, ExponentialMovingAverage.SmoothingFactorDefault(period), resolution, selector);
+        }
+
+        /// <summary>
+        /// Creates an ExponentialMovingAverage indicator for the symbol. The indicator will be automatically
+        /// updated on the given resolution.
+        /// </summary>
+        /// <param name="symbol">The symbol whose EMA we want</param>
+        /// <param name="period">The period of the EMA</param>
+        /// <param name="smoothingFactor">The percentage of data from the previous value to be carried into the next value</param>
+        /// <param name="resolution">The resolution</param>
+        /// <param name="selector">Selects a value from the BaseData to send into the indicator, if null defaults to the Value property of BaseData (x => x.Value)</param>
+        /// <returns>The ExponentialMovingAverage for the given parameters</returns>
+        public ExponentialMovingAverage EMA(Symbol symbol, int period, decimal smoothingFactor, Resolution? resolution = null, Func<IBaseData, decimal> selector = null)
+        {
             var name = CreateIndicatorName(symbol, $"EMA({period})", resolution);
-            var exponentialMovingAverage = new ExponentialMovingAverage(name, period);
+            var exponentialMovingAverage = new ExponentialMovingAverage(name, period, smoothingFactor);
             RegisterIndicator(symbol, exponentialMovingAverage, resolution, selector);
 
             if (EnableAutomaticIndicatorWarmUp)
@@ -1916,16 +1931,7 @@ namespace QuantConnect.Algorithm
                 indicator.Update(input);
             };
 
-            var consolidator = GetIndicatorWarmUpConsolidator(symbol, period, onDataConsolidated);
-            history.PushThrough(bar => consolidator.Update(bar));
-
-            // Scan for time after we've pumped all the data through for this consolidator
-            var lastBar = history.LastOrDefault();
-            if (lastBar != null && lastBar.ContainsKey(symbol))
-            {
-                consolidator.Scan(((IBaseData)lastBar[symbol]).EndTime);
-            }
-
+            WarmUpIndicatorImpl(symbol, period, onDataConsolidated, history);
             return indicator;
         }
 
@@ -1967,15 +1973,7 @@ namespace QuantConnect.Algorithm
                 indicator.Update(selector(bar));
             };
 
-            // Push the historical data through a consolidator
-            var consolidator = GetIndicatorWarmUpConsolidator(symbol, period, onDataConsolidated);
-            history.PushThrough(bar => consolidator.Update(bar));
-
-            // Scan for time after we've pumped all the data through for this consolidator
-            var lastBar = history.LastOrDefault();
-            var lastTime = lastBar == null ? DateTime.MinValue : lastBar[symbol].EndTime;
-            consolidator.Scan(lastTime);
-
+            WarmUpIndicatorImpl(symbol, period, onDataConsolidated, history);
             return indicator;
         }
 
@@ -2005,22 +2003,39 @@ namespace QuantConnect.Algorithm
             return Enumerable.Empty<Slice>();
         }
 
-        private IDataConsolidator GetIndicatorWarmUpConsolidator<T>(Symbol symbol, TimeSpan period, Action<T> handler)
+        private void WarmUpIndicatorImpl<T>(Symbol symbol, TimeSpan period, Action<T> handler, IEnumerable<Slice> history)
             where T : class, IBaseData
         {
+            IDataConsolidator consolidator;
             if (SubscriptionManager.Subscriptions.Any(x => x.Symbol == symbol))
             {
-                return Consolidate(symbol, period, handler);
+                consolidator = Consolidate(symbol, period, handler);
+            }
+            else
+            {
+                var dataType = SubscriptionManager.LookupSubscriptionConfigDataTypes(
+                    symbol.SecurityType,
+                    Resolution.Daily,
+                    symbol.IsCanonical()).First();
+
+                consolidator = CreateConsolidator(period, dataType.Item1, dataType.Item2);
+                consolidator.DataConsolidated += (s, bar) => handler((T)bar);
             }
 
-            var dataType = SubscriptionManager.LookupSubscriptionConfigDataTypes(
-                symbol.SecurityType,
-                Resolution.Daily,
-                symbol.IsCanonical()).First();
+            BaseData lastBar = null;
+            history.PushThrough(bar =>
+                {
+                    lastBar = bar;
+                    consolidator.Update(bar);
+                }
+            );
+            // Scan for time after we've pumped all the data through for this consolidator
+            if (lastBar != null)
+            {
+                consolidator.Scan(lastBar.EndTime);
+            }
 
-            var consolidator = CreateConsolidator(period, dataType.Item1, dataType.Item2);
-            consolidator.DataConsolidated += (s, bar) => handler((T)bar);
-            return consolidator;
+            SubscriptionManager.RemoveConsolidator(symbol, consolidator);
         }
 
         /// <summary>
