@@ -24,6 +24,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleToAttribute("QuantConnect.Lean.Brokerages")]
 [assembly: InternalsVisibleToAttribute("QuantConnect.Lean.Engine2")]
+[assembly: InternalsVisibleToAttribute("QuantConnect.Lean.Tests")]
 namespace QuantConnect.Orders
 {
     /// <summary>

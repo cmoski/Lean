@@ -16,7 +16,7 @@
 using Newtonsoft.Json;
 using NUnit.Framework;
 using QuantConnect.Data.Custom.Estimize;
-using QuantConnect.ToolBox.EstimizeDataDownloader;
+//using QuantConnect.ToolBox.EstimizeDataDownloader;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,13 +33,13 @@ namespace QuantConnect.Tests.Common.Data.Custom
         [Test, Ignore("TODO: Why is this ignored")]
         public void EstimizeDownloadDoesNotThrow()
         {
-            var tickers = new List<EstimizeDataDownloader.Company>();
+            //var tickers = new List<EstimizeDataDownloader.Company>();
 
-            var destinationFolder = Path.Combine(Globals.DataFolder, "alternative", "estimize");
-            var downloader = new EstimizeReleaseDataDownloader(destinationFolder);
+            //var destinationFolder = Path.Combine(Globals.DataFolder, "alternative", "estimize");
+            //var downloader = new EstimizeReleaseDataDownloader(destinationFolder);
 
-            Assert.DoesNotThrow(() => tickers = downloader.GetCompanies().Result);
-            Assert.IsTrue(tickers.Count > 0);
+            //Assert.DoesNotThrow(() => tickers = downloader.GetCompanies().Result);
+            //Assert.IsTrue(tickers.Count > 0);
         }
 
         [Test]

@@ -18,7 +18,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using NUnit.Framework;
-using QuantConnect.Brokerages.Fxcm;
+//using QuantConnect.Brokerages.Fxcm;
 using QuantConnect.Configuration;
 using QuantConnect.Interfaces;
 using QuantConnect.Orders;
@@ -26,7 +26,7 @@ using QuantConnect.Securities;
 
 namespace QuantConnect.Tests.Brokerages.Fxcm
 {
-    [TestFixture, Ignore("These tests require a configured and active FXCM practice account")]
+    [TestFixture, Ignore("These tests require a configured and active FXCM practice account AND FXCM not up yet")]
     public partial class FxcmBrokerageTests : BrokerageTests
     {
         /// <summary>
@@ -41,7 +41,9 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
             var password = Config.Get("fxcm-password");
             var accountId = Config.Get("fxcm-account-id");
 
-            return new FxcmBrokerage(orderProvider, securityProvider, server, terminal, userName, password, accountId);
+            //return new FxcmBrokerage(orderProvider, securityProvider, server, terminal, userName, password, accountId);
+            object a = "";
+            return a as IBrokerage;
         }
 
         /// <summary>

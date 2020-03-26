@@ -16,7 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using QuantConnect.Brokerages.Fxcm;
+//using QuantConnect.Brokerages.Fxcm;
 using QuantConnect.Interfaces;
 using QuantConnect.Logging;
 using QuantConnect.Orders;
@@ -32,6 +32,8 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
 
         public override bool ModifyOrderToFill(IBrokerage brokerage, Order order, decimal lastMarketPrice)
         {
+            throw new NotImplementedException();
+            /*
             // FXCM Buy StopMarket orders will be rejected if the stop price is below the market price
             // FXCM Sell StopMarket orders will be rejected if the stop price is above the market price
 
@@ -59,6 +61,7 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
             }
 
             return stop.StopPrice != previousStop;
+            */
         }
     }
 }
