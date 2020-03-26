@@ -1,0 +1,84 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="CoarseUniverseGenerator\exclusions.txt" />
+    <None Remove="Visualizer\__init__.py" />
+    <None Remove="Visualizer\QuantConnect.Visualizer.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="AlgoSeekFuturesConverter\AlgoSeek.US.Futures.PriceMultipliers.1.1.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="CoarseUniverseGenerator\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="IQFeed\IQFeed-symbol-map.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="instruments_dukascopy.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="instruments_fxcm.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="instruments_oanda.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AlgoSeekFuturesConverter\" />
+    <Folder Include="AlgoSeekOptionsConverter\" />
+    <Folder Include="Benzinga\" />
+    <Folder Include="BitfinexDownloader\" />
+    <Folder Include="CoarseUniverseGenerator\" />
+    <Folder Include="CoinApi\" />
+    <Folder Include="CoinApiDataConverter\" />
+    <Folder Include="CryptoiqDownloader\" />
+    <Folder Include="DukascopyDownloader\" />
+    <Folder Include="EstimizeDataDownloader\" />
+    <Folder Include="FxcmDownloader\" />
+    <Folder Include="FxcmVolumeDownloader\" />
+    <Folder Include="GDAXDownloader\" />
+    <Folder Include="IBDownloader\" />
+    <Folder Include="IEX\" />
+    <Folder Include="IQFeed\" />
+    <Folder Include="IQFeedDownloader\" />
+    <Folder Include="IVolatilityEquityConverter\" />
+    <Folder Include="KaikoDataConverter\" />
+    <Folder Include="KrakenDataDownloader\" />
+    <Folder Include="NseMarketDataConverter\" />
+    <Folder Include="OandaDownloader\" />
+    <Folder Include="PsychSignalDataConverter\" />
+    <Folder Include="QuandlBitfinexDownloader\" />
+    <Folder Include="QuantQuoteConverter\" />
+    <Folder Include="RandomDataGenerator\" />
+    <Folder Include="SECDataDownloader\" />
+    <Folder Include="SmartInsider\" />
+    <Folder Include="TiingoNewsConverter\" />
+    <Folder Include="TradingEconomicsDataDownloader\" />
+    <Folder Include="USTreasuryYieldCurve\" />
+    <Folder Include="Visualizer\" />
+    <Folder Include="YahooDownloader\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CoarseUniverseGenerator\exclusions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Visualizer\__init__.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Visualizer\QuantConnect.Visualizer.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
