@@ -18,7 +18,7 @@ using System.Diagnostics;
 using System.Linq;
 using NodaTime;
 using NUnit.Framework;
-using QuantConnect.Brokerages.Fxcm;
+//using QuantConnect.Brokerages.Fxcm;
 using QuantConnect.Data;
 using QuantConnect.Data.Market;
 using QuantConnect.Lean.Engine.HistoricalData;
@@ -55,12 +55,13 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
             }
         }
 
-        [Test, TestCaseSource("TestParameters")]
+        [Test, TestCaseSource("TestParameters"), Ignore("FXCM not up yet")]
         public void GetsHistory(Symbol symbol, Resolution resolution, TimeSpan period, bool throwsException)
         {
             TestDelegate test = () =>
             {
-                var brokerage = (FxcmBrokerage) Brokerage;
+                //var brokerage = (FxcmBrokerage) Brokerage;
+                var brokerage = Brokerage;
 
                 var historyProvider = new BrokerageHistoryProvider();
                 historyProvider.SetBrokerage(brokerage);
@@ -116,7 +117,7 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
             }
         }
 
-        [Test]
+        [Test, Ignore("FXCM not up yet")]
         public void GetsFullDayTickHistory()
         {
             var symbol = Symbols.EURUSD;
@@ -125,7 +126,7 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
             var startDate = new DateTime(2016, 11, 1);
             var endDate = startDate.AddDays(1);
 
-            var brokerage = (FxcmBrokerage)Brokerage;
+            var brokerage = Brokerage;
 
             var historyProvider = new BrokerageHistoryProvider();
             historyProvider.SetBrokerage(brokerage);
