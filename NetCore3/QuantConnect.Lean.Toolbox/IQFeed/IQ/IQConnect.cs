@@ -18,6 +18,7 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.Threading;
 using QuantConnect.Configuration;
+using System;
 
 namespace QuantConnect.ToolBox.IQFeed
 {
@@ -43,6 +44,7 @@ namespace QuantConnect.ToolBox.IQFeed
 
         public string getPath()
         {
+            /*
             var key = Registry.LocalMachine.OpenSubKey("SOFTWARE\\DTN\\IQFeed");
             if (key == null)
             {
@@ -63,7 +65,10 @@ namespace QuantConnect.ToolBox.IQFeed
                 sLocation += "IQConnect.exe";
             }
             return sLocation;
+            */
+            throw new NotImplementedException();
         }
+
         public string getArguments(IQCredentials iqc)
         {
             var arguments = "";

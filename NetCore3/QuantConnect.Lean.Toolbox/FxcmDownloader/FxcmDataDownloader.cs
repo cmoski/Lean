@@ -17,37 +17,37 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using com.fxcm.external.api.transport;
-using com.fxcm.external.api.transport.listeners;
-using com.fxcm.fix;
-using com.fxcm.fix.pretrade;
-using com.fxcm.messaging;
-using java.util;
-using QuantConnect.Brokerages.Fxcm;
+//using com.fxcm.external.api.transport;
+//using com.fxcm.external.api.transport.listeners;
+//using com.fxcm.fix;
+//using com.fxcm.fix.pretrade;
+//using com.fxcm.messaging;
+//using java.util;
+//using QuantConnect.Brokerages.Fxcm;
 using QuantConnect.Data;
 using QuantConnect.Data.Market;
-using TimeZone = java.util.TimeZone;
+//using TimeZone = java.util.TimeZone;
 
 namespace QuantConnect.ToolBox.FxcmDownloader
 {
     /// <summary>
     /// FXCM Data Downloader class
     /// </summary>
-    public class FxcmDataDownloader : IDataDownloader, IGenericMessageListener, IStatusMessageListener
+    public class FxcmDataDownloader : IDataDownloader//, IGenericMessageListener, IStatusMessageListener
     {
-        private readonly FxcmSymbolMapper _symbolMapper = new FxcmSymbolMapper();
+        //private readonly FxcmSymbolMapper _symbolMapper = new FxcmSymbolMapper();
         private readonly string _server;
         private readonly string _terminal;
         private readonly string _userName;
         private readonly string _password;
 
 
-        private IGateway _gateway;
+        //private IGateway _gateway;
         private readonly object _locker = new object();
         private string _currentRequest;
         private const int ResponseTimeout = 2500;
         private readonly Dictionary<string, AutoResetEvent> _mapRequestsToAutoResetEvents = new Dictionary<string, AutoResetEvent>();
-        private readonly Dictionary<string, TradingSecurity> _fxcmInstruments = new Dictionary<string, TradingSecurity>();
+        //private readonly Dictionary<string, TradingSecurity> _fxcmInstruments = new Dictionary<string, TradingSecurity>();
         private readonly IList<BaseData> _currentBaseData = new List<BaseData>();
 
         /// <summary>
@@ -66,8 +66,10 @@ namespace QuantConnect.ToolBox.FxcmDownloader
         /// </summary>
         /// <param name="javaDate">The Java date</param>
         /// <returns>A UTC DateTime value</returns>
-        private static DateTime FromJavaDateUtc(Date javaDate)
+        private static DateTime FromJavaDateUtc(DateTime javaDate)
         {
+            throw new NotImplementedException();
+            /*
             var cal = Calendar.getInstance();
             cal.setTimeZone(TimeZone.getTimeZone("UTC"));
             cal.setTime(javaDate);
@@ -81,6 +83,7 @@ namespace QuantConnect.ToolBox.FxcmDownloader
                                 cal.get(Calendar.MINUTE),
                                 cal.get(Calendar.SECOND),
                                 cal.get(Calendar.MILLISECOND));
+                                */
         }
 
         /// <summary>
@@ -90,7 +93,8 @@ namespace QuantConnect.ToolBox.FxcmDownloader
         /// <returns>Returns true if the symbol is available</returns>
         public bool HasSymbol(string symbol)
         {
-            return _symbolMapper.IsKnownLeanSymbol(Symbol.Create(symbol, GetSecurityType(symbol), Market.FXCM));
+            //return _symbolMapper.IsKnownLeanSymbol(Symbol.Create(symbol, GetSecurityType(symbol), Market.FXCM));
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -100,7 +104,8 @@ namespace QuantConnect.ToolBox.FxcmDownloader
         /// <returns>The security type</returns>
         public SecurityType GetSecurityType(string symbol)
         {
-            return _symbolMapper.GetLeanSecurityType(symbol);
+            //return _symbolMapper.GetLeanSecurityType(symbol);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -113,7 +118,8 @@ namespace QuantConnect.ToolBox.FxcmDownloader
         /// <returns>Enumerable of base data for this symbol</returns>
         public IEnumerable<BaseData> Get(Symbol symbol, Resolution resolution, DateTime startUtc, DateTime endUtc)
         {
-            if (!_symbolMapper.IsKnownLeanSymbol(symbol))
+            throw new NotImplementedException();
+            /*if (!_symbolMapper.IsKnownLeanSymbol(symbol))
                 throw new ArgumentException("Invalid symbol requested: " + symbol.Value);
 
             if (symbol.ID.SecurityType != SecurityType.Forex && symbol.ID.SecurityType != SecurityType.Cfd)
@@ -212,13 +218,15 @@ namespace QuantConnect.ToolBox.FxcmDownloader
             _gateway.removeStatusMessageListener(this);
 
             return totalBaseData.ToList();
+            */
 
         }
 
         private void RequestTradingSessionStatus()
         {
+            throw new NotImplementedException();
             // Note: requestTradingSessionStatus() MUST be called just after login
-
+            /*
             AutoResetEvent autoResetEvent;
             lock (_locker)
             {
@@ -230,10 +238,12 @@ namespace QuantConnect.ToolBox.FxcmDownloader
                 throw new TimeoutException("FxcmBrokerage.LoadInstruments(): Operation took " +
                     $"longer than {((decimal) ResponseTimeout / 1000).ToStringInvariant()} seconds."
                 );
+                */
         }
 
         #region IGenericMessageListener implementation
 
+        /*
         /// <summary>
         /// Receives generic messages from the FXCM API
         /// </summary>
@@ -249,8 +259,9 @@ namespace QuantConnect.ToolBox.FxcmDownloader
                 else if (message is MarketDataSnapshot)
                     OnMarketDataSnapshot((MarketDataSnapshot)message);
             }
-        }
+        }*/
 
+            /*
         /// <summary>
         /// TradingSessionStatus message handler
         /// </summary>
@@ -269,8 +280,8 @@ namespace QuantConnect.ToolBox.FxcmDownloader
                 _mapRequestsToAutoResetEvents[_currentRequest].Set();
                 _mapRequestsToAutoResetEvents.Remove(_currentRequest);
             }
-        }
-
+        }*/
+        /*
         /// <summary>
         /// MarketDataSnapshot message handler
         /// </summary>
@@ -313,7 +324,7 @@ namespace QuantConnect.ToolBox.FxcmDownloader
                     _mapRequestsToAutoResetEvents.Remove(_currentRequest);
                 }
             }
-        }
+        }*/
 
         #endregion
 
@@ -324,9 +335,9 @@ namespace QuantConnect.ToolBox.FxcmDownloader
         /// Receives status messages from the FXCM API
         /// </summary>
         /// <param name="message">Status message received</param>
-        public void messageArrived(ISessionStatus message)
-        {
-        }
+        //public void messageArrived(ISessionStatus message)
+        //{
+        //}
 
         #endregion
 

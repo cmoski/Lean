@@ -6,9 +6,11 @@
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="CoarseUniverseGenerator\exclusions.txt" />
@@ -80,5 +82,18 @@
     <Content Include="Visualizer\QuantConnect.Visualizer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+    <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Brokerages\QuantConnect.Lean.Brokerages.csproj" />
+    <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Engine2\QuantConnect.Lean.Engine2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Compression\QuantConnect.Lean.Compression.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SharpZipLib" Version="1.2.0" />
+    <PackageReference Include="CoinAPI.WebSocket.V1" Version="1.6.1" />
+    <PackageReference Include="SevenZip" Version="19.0.0" />
   </ItemGroup>
 </Project>

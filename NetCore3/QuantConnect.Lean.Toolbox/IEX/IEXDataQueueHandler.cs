@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using QuantConnect.Data;
 using QuantConnect.Packets;
 using QuantConnect.Configuration;
-using Quobject.SocketIoClientDotNet.Client;
+//using Quobject.SocketIoClientDotNet.Client;
 using QuantConnect.Logging;
 using Newtonsoft.Json.Linq;
 using QuantConnect.Data.Market;
@@ -42,11 +42,11 @@ namespace QuantConnect.ToolBox.IEX
     public class IEXDataQueueHandler : HistoryProviderBase, IDataQueueHandler, IDisposable
     {
         // using SocketIoClientDotNet is a temp solution until IEX implements standard WebSockets protocol
-        private Socket _socket;
+        //private Socket _socket;
         private readonly string _apiKey;
 
         private ConcurrentDictionary<string, Symbol> _symbols = new ConcurrentDictionary<string, Symbol>(StringComparer.InvariantCultureIgnoreCase);
-        private Manager _manager;
+        //private Manager _manager;
         private CancellationTokenSource _cts = new CancellationTokenSource();
         private static DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Unspecified);
         private TaskCompletionSource<bool> _connected = new TaskCompletionSource<bool>();
@@ -60,7 +60,8 @@ namespace QuantConnect.ToolBox.IEX
 
         public bool IsConnected
         {
-            get { return _manager.ReadyState == Manager.ReadyStateEnum.OPEN; }
+            get { throw new NotImplementedException(); }
+            //get { return _manager.ReadyState == Manager.ReadyStateEnum.OPEN; }
         }
 
         public IEXDataQueueHandler(bool live = true, string apiKey = null)
@@ -73,6 +74,8 @@ namespace QuantConnect.ToolBox.IEX
 
         internal void Reconnect()
         {
+            throw new NotImplementedException();
+            /*
             try
             {
                 _socket = IO.Socket(Endpoint,
@@ -94,7 +97,7 @@ namespace QuantConnect.ToolBox.IEX
             catch (Exception err)
             {
                 Log.Error("IEXDataQueueHandler.Reconnect(): " + err.Message);
-            }
+            }*/
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -240,6 +243,8 @@ namespace QuantConnect.ToolBox.IEX
         /// <param name="symbol"></param>
         private void SocketSafeAsyncEmit(string command, string value)
         {
+            throw new NotImplementedException();
+            /*
             Task.Run(async () =>
             {
                 await _connected.Task;
@@ -276,7 +281,7 @@ namespace QuantConnect.ToolBox.IEX
                 Log.Error("IEXDataQueueHandler.SocketSafeAsyncEmit(): " + t.Exception.Message);
                 return t;
 
-            }, TaskContinuationOptions.OnlyOnFaulted);
+            }, TaskContinuationOptions.OnlyOnFaulted);*/
         }
 
         /// <summary>
@@ -290,6 +295,8 @@ namespace QuantConnect.ToolBox.IEX
 
         private void Dispose(bool disposing)
         {
+            throw new NotImplementedException();
+            /*
             _outputCollection.CompleteAdding();
             _cts.Cancel();
             if (_socket != null)
@@ -298,6 +305,7 @@ namespace QuantConnect.ToolBox.IEX
                 _socket.Close();
             }
             Log.Trace("IEXDataQueueHandler.Dispose(): Disconnected from IEX live data");
+            */
         }
 
         ~IEXDataQueueHandler()

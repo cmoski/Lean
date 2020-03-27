@@ -15,7 +15,7 @@
 
 
 using NodaTime;
-using QuantConnect.Brokerages.InteractiveBrokers;
+//using QuantConnect.Brokerages.InteractiveBrokers;
 using QuantConnect.Data;
 using QuantConnect.Data.Market;
 using QuantConnect.Securities;
@@ -30,15 +30,16 @@ namespace QuantConnect.ToolBox.IBDownloader
     /// </summary>
     public class IBDataDownloader : IDataDownloader, IDisposable
     {
-        private readonly InteractiveBrokersBrokerage _brokerage;
+        //private readonly InteractiveBrokersBrokerage _brokerage;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IBDataDownloader"/> class
         /// </summary>
         public IBDataDownloader()
         {
-            _brokerage = new InteractiveBrokersBrokerage(null, null, null);
-            _brokerage.Connect();
+            throw new NotImplementedException();
+            //_brokerage = new InteractiveBrokersBrokerage(null, null, null);
+            //_brokerage.Connect();
         }
 
 
@@ -72,10 +73,10 @@ namespace QuantConnect.ToolBox.IBDownloader
                 DataNormalizationMode.Adjusted,
                 TickType.Quote);
 
-            var data = _brokerage.GetHistory(historyRequest);
+            //var data = _brokerage.GetHistory(historyRequest);
 
-            return data;
-
+            //return data;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -157,11 +158,14 @@ namespace QuantConnect.ToolBox.IBDownloader
 
         public void Dispose()
         {
+            throw new NotImplementedException();
+            /*
             if (_brokerage != null)
             {
                 _brokerage.Disconnect();
                 _brokerage.Dispose();
             }
+            */
         }
 
         #endregion

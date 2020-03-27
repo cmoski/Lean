@@ -198,7 +198,7 @@ namespace QuantConnect.ToolBox.DukascopyDownloader
             {
                 using (var outStream = new MemoryStream())
                 {
-                    SevenZipExtractor.DecompressStream(inStream, outStream, (int)inStream.Length, null);
+                    new SevenZip.Compression.LZMA.Decoder().Code(inStream, outStream, (int)inStream.Length, (int)inStream.Length, null);
 
                     byte[] bytes = outStream.ToArray();
                     int count = bytes.Length / DukascopyTickLength;
