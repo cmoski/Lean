@@ -17,6 +17,7 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
     <PackageReference Include="Moq" Version="4.13.1" />
+    <PackageReference Include="Deedle" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -449,5 +450,6 @@
     <ProjectReference Include="..\QuantConnect.Lean.Queues\QuantConnect.Lean.Queues.csproj" />
     <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
     <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Toolbox\QuantConnect.Lean.Toolbox.csproj" />
   </ItemGroup>
 </Project>
