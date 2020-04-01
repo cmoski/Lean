@@ -35,6 +35,7 @@ namespace QuantConnect.Tests.Brokerages.InteractiveBrokers
     [Ignore("These tests require the IBGateway to be installed.")]
     public class InteractiveBrokersBrokerageTests
     {
+        /*
         private readonly List<Order> _orders = new List<Order>();
         private InteractiveBrokersBrokerage _interactiveBrokersBrokerage;
         private const int buyQuantity = 100;
@@ -612,10 +613,11 @@ namespace QuantConnect.Tests.Brokerages.InteractiveBrokers
 
             Assert.IsTrue(executions.Any(x => order.BrokerId.Any(id => executions.Any(e => e.Execution.OrderId == Parse.Int(id)))));
         }
-
-        [Test]
+        */
+        [Test, Ignore("IB not up yet")]
         public void GetOpenOrders()
         {
+            /*
             var ib = _interactiveBrokersBrokerage;
 
             var orderEventFired = new ManualResetEvent(false);
@@ -638,8 +640,9 @@ namespace QuantConnect.Tests.Brokerages.InteractiveBrokers
             var openOrders = ib.GetOpenOrders();
 
             Assert.AreNotEqual(0, openOrders.Count);
+            */
         }
-
+        /*
         [Test, Ignore("This test requires disconnecting the internet to test for connection resiliency")]
         public void ClientReconnectsAfterInternetDisconnect()
         {
@@ -766,8 +769,9 @@ namespace QuantConnect.Tests.Brokerages.InteractiveBrokers
                 Assert.Fail("The order was not filled and was unable to be located via GetOpenOrders()");
             }
 
-            Assert.Pass("The order was successfully filled!");
+            Assert.Pass("The order was successfully filled!");            
             return null;
         }
+        */
     }
 }

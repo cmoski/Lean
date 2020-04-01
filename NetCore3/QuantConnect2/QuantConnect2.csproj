@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuantConnect.Configuration2\QuantConnect.Configuration2.csproj" />
-    <ProjectReference Include="..\QuantConnect.PythonWrapper\QuantConnect.PythonWrapper.csproj" />
     <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
+    <ProjectReference Include="..\QuantConnect.PythonWrapper\QuantConnect.PythonWrapper.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

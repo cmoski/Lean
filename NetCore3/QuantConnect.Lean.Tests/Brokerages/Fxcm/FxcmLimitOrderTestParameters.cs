@@ -32,9 +32,10 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
 
         public override bool ModifyOrderToFill(IBrokerage brokerage, Order order, decimal lastMarketPrice)
         {
+            throw new NotImplementedException("FXCM not up yet");
             // FXCM Buy Limit orders will be rejected if the limit price is above the market price
             // FXCM Sell Limit orders will be rejected if the limit price is below the market price
-
+            /*
             var limit = (LimitOrder)order;
             var previousLimit = limit.LimitPrice;
 
@@ -59,6 +60,7 @@ namespace QuantConnect.Tests.Brokerages.Fxcm
             }
 
             return limit.LimitPrice != previousLimit;
+            */
         }
     }
 }

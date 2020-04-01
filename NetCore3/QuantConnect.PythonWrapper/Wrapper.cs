@@ -234,7 +234,7 @@ namespace Python.Runtime
             throw new NotImplementedException();
         }
 
-        public static dynamic DefineDynamicAssembly(this AppDomain domain, AssemblyName name, AssemblyBuilderAccess an)
+        public static dynamic DefineDynamicAssembly(this AppDomain domain, AssemblyName name, dynamic an)
         {
             throw new NotImplementedException();
         }
@@ -265,10 +265,5 @@ namespace Python.Runtime
         {
             throw new NotImplementedException();
         }
-    }
-
-    public enum AssemblyBuilderAccess
-    {
-        Run = 1
     }
 }
