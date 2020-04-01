@@ -69,7 +69,7 @@ namespace QuantConnect.Tests.Algorithm
             }
 
             var content = string.Empty;
-            Assert.DoesNotThrow(() => content = algo.Download("https://www.quantconnect.com/", headers));
+            Assert.DoesNotThrow(() => content = algo.Download("https://www.quantconnect.com/", headers as IEnumerable<KeyValuePair<string, string>>));
             Assert.IsNotEmpty(content);
         }
     }

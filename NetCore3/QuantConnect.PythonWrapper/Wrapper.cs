@@ -54,10 +54,10 @@ namespace Python.Runtime
             throw new NotImplementedException("Python is not yet supported");
         }
 
-        public static implicit operator PyObject(PyList v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static implicit operator PyObject(PyList v)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public dynamic GetIterator()
         {
@@ -75,6 +75,14 @@ namespace Python.Runtime
         }
 
         public bool IsIterable()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class PyInt : PyObject
+    {
+        public PyInt(int num)
         {
             throw new NotImplementedException();
         }
@@ -133,8 +141,14 @@ namespace Python.Runtime
         }
     }
 
-    public class PyList : IDisposable
+    public class PyList : PyObject, IDisposable, IList<PyObject>
     {
+        public int Count => throw new NotImplementedException();
+
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        public PyObject this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public PyList(dynamic args = null)
         {
             throw new NotImplementedException("Python is not yet supported");
@@ -155,6 +169,56 @@ namespace Python.Runtime
         }
 
         public void Append(dynamic items = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int IndexOf(PyObject item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(int index, PyObject item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveAt(int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add(PyObject item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(PyObject item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(PyObject[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(PyObject item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator<PyObject> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

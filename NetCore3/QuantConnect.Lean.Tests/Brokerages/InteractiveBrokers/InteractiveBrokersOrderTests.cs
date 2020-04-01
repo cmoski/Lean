@@ -13,6 +13,7 @@
  * limitations under the License.
 */
 
+using System;
 using NUnit.Framework;
 using QuantConnect.Algorithm;
 using QuantConnect.Brokerages.InteractiveBrokers;
@@ -57,7 +58,8 @@ namespace QuantConnect.Tests.Brokerages.InteractiveBrokers
 
         protected override IBrokerage CreateBrokerage(IOrderProvider orderProvider, ISecurityProvider securityProvider)
         {
-            return new InteractiveBrokersBrokerage(new QCAlgorithm(), orderProvider, securityProvider);
+            throw new NotImplementedException();
+            //return new InteractiveBrokersBrokerage(new QCAlgorithm(), orderProvider, securityProvider);
         }
 
         protected override void DisposeBrokerage(IBrokerage brokerage)

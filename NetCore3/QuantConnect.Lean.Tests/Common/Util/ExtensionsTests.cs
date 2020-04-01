@@ -860,10 +860,11 @@ namespace QuantConnect.Tests.Common.Util
             SymbolCache.Clear();
             SymbolCache.Set("SPY", Symbols.SPY);
 
-            IEnumerable<Symbol> symbols;
+            PyList symbols;
             using (Py.GIL())
             {
-                symbols = new PyList(new[] { "SPY".ToPython() }).ConvertToSymbolEnumerable();
+                symbols = new PyList(new[] { "SPY".ToPython() });
+                symbols.ConvertToSymbolEnumerable();
             }
 
             Assert.AreEqual(Symbols.SPY, symbols.Single());
@@ -884,10 +885,11 @@ namespace QuantConnect.Tests.Common.Util
         [Test]
         public void PyObjectSymbolListConvertToSymbolEnumerable()
         {
-            IEnumerable<Symbol> symbols;
+            PyList symbols;
             using (Py.GIL())
             {
-                symbols = new PyList(new[] {Symbols.SPY.ToPython()}).ConvertToSymbolEnumerable();
+                symbols = new PyList(new[] { Symbols.SPY.ToPython() });
+                symbols.ConvertToSymbolEnumerable();
             }
 
             Assert.AreEqual(Symbols.SPY, symbols.Single());

@@ -33,6 +33,7 @@ using NodaTime;
 using System.Globalization;
 using static QuantConnect.StringExtensions;
 
+[assembly:InternalsVisibleTo("QuantConnect.Lean.Tests")]
 namespace QuantConnect.ToolBox.IEX
 {
     /// <summary>
