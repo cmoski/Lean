@@ -451,5 +451,6 @@
     <ProjectReference Include="..\QuantConnect.Logging2\QuantConnect.Logging2.csproj" />
     <ProjectReference Include="..\QuantConnect2\QuantConnect2.csproj" />
     <ProjectReference Include="..\QuantConnect.Lean.Toolbox\QuantConnect.Lean.Toolbox.csproj" />
+    <ProjectReference Include="..\QuantConnect.Lean.Reports\QuantConnect.Lean.Report.csproj" />
   </ItemGroup>
 </Project>

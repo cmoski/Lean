@@ -126,11 +126,16 @@ namespace Python.Runtime
         {
             throw new NotImplementedException();
         }
+
+        public static dynamic ImportModule(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class PyList : IDisposable
     {
-        public PyList(dynamic args)
+        public PyList(dynamic args = null)
         {
             throw new NotImplementedException("Python is not yet supported");
         }
@@ -145,6 +150,11 @@ namespace Python.Runtime
         }
 
         public static bool IsListType(PyObject pyObject)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Append(dynamic items = null)
         {
             throw new NotImplementedException();
         }
