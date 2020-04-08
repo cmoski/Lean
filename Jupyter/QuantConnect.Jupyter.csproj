@@ -119,9 +119,6 @@
     </When>
   </Choose>
   <ItemGroup>
-    <Compile Include="FutureHistory.cs" />
-    <Compile Include="OptionHistory.cs" />
-    <Compile Include="QuantBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,17 +160,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BasicCSharpQuantBookTemplate.ipynb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="BasicQuantBookTemplate.ipynb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
-    <None Include="QuantConnect.csx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
