@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="css\report.css" />
+    <None Remove="config.example.json" />
+    <None Remove="ReportCharts.py" />
+    <None Remove="ReportChartTests.py" />
+    <None Remove="template.html" />
+    <None Remove="template.crisis.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\report.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config.example.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReportCharts.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ReportChartTests.py" />
+    <Content Include="template.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template.crisis.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="PortfolioLooper\" />
+    <Folder Include="ReportElements\" />
+  </ItemGroup>
+</Project>
